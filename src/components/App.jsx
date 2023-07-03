@@ -12,12 +12,13 @@ import { getIsRefreshing } from 'redux/auth/auth-selectors';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 
 // import css from './App.module.css';
-import { PrivateRoute } from './UserMenu/PrivateRoute';
-import { PublicRoute } from './UserMenu/PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 export function App() {
   const dispatch = useDispatch();
   const isRefresh = useSelector(getIsRefreshing);
+  console.log("isRefresh:", isRefresh)
 
   useEffect(() => {
     dispatch(fetchCurrentUser());

@@ -20,11 +20,9 @@ export function ContactForm() {
   const onFormSubmit = event => {
     event.preventDefault();
     const normaliseName = name.toLowerCase().trim();
-    if (data) {
-      data.find(contact => contact.name.toLowerCase() === normaliseName)
-        ? alert(`${name} is already in contacts`)
-        : addContact({ name: name, number: number });
-    }
+    data.find(contact => contact.name.toLowerCase() === normaliseName)
+      ? alert(`${name} is already in contacts`)
+      : addContact({ name: name, number: number });
     resetForm();
   };
 

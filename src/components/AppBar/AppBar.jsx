@@ -3,8 +3,9 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 
-import { Container, Header, Link, Nav } from './AppBar.styled';
+import { Container, Header, Link } from './AppBar.styled';
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 
 
@@ -16,10 +17,7 @@ export function AppBar() {
     <Container>
       <Header>
       <Link to="/" end>Home</Link>
-        {!isLoggedIn ? <Nav>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </Nav>
+        {!isLoggedIn ? <AuthNav/>
         : <UserMenu/>}
       </Header>
       <Suspense fallback={<div>Loading page...</div>}>

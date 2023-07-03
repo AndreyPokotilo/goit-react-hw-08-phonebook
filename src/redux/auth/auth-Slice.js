@@ -42,7 +42,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
 
-      .addMatcher(fetchCurrentUser.rejected,(state) => {
+      .addCase(fetchCurrentUser.rejected,(state) => {
         state.isRefreshing = false;
       })
   },

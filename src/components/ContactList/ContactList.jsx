@@ -13,21 +13,18 @@ export function ContactList() {
   const onFilterSearch = () => {
     const normaliseFilter = filterValue.toLowerCase().trim();
 
-    if (data) {
-      return data.filter(({ name }) =>
-        name.toLowerCase().includes(normaliseFilter)
-      );
-    }
+    return data.filter(({ name }) =>
+      name.toLowerCase().includes(normaliseFilter)
+    );
   };
 
   return (
     <ul className={css.listContact}>
-      {onFilterSearch() &&
-        onFilterSearch().map(({ id, name, number }) => (
-          <li className={css.listItem} key={id}>
-            <Contact name={name} number={number} contactId={id} />
-          </li>
-        ))}
+      {onFilterSearch().map(({ id, name, number }) => (
+        <li className={css.listItem} key={id}>
+          <Contact name={name} number={number} contactId={id} />
+        </li>
+      ))}
     </ul>
   );
 }
